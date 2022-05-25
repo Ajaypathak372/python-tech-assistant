@@ -1,0 +1,12 @@
+#!/bin/bash
+if rpm -q hadoop | grep hadoop
+then
+echo "Hadoop Package is already installed"
+else
+echo "Hadoop Package is not installed"
+echo "Installing Hadoop...."
+sudo wget -q https://archive.apache.org/dist/hadoop/core/hadoop-1.2.1/hadoop-1.2.1-1.x86_64.rpm > /dev/null
+sudo wget -q https://repo.huaweicloud.com/java/jdk/8u171-b11/jdk-8u171-linux-x64.rpm > /dev/null
+sudo rpm -ivh ./*.rpm --force > /dev/null
+echo "Hadoop Installed Successfully"
+fi
